@@ -33,13 +33,13 @@
             <q-btn
               @click="onEditClickHandler(props.row)"
               color="primary"
-              icon="img:src/assets/edit.svg"
+              icon="img:/edit.svg"
             />
             <q-btn
               @click="onDeleteClickHandler(props.row.id)"
               color="negative"
               class="q-ml-md"
-              icon="img:src/assets/delete.svg"
+              icon="img:/delete.svg"
             />
           </q-td>
         </q-tr>
