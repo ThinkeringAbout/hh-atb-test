@@ -58,6 +58,7 @@
 import { defineComponent } from "vue";
 import ConfirmDialog from "./ConfirmDialog.vue";
 import UserData from "../types/UserData";
+import { QTableColumn } from "quasar";
 
 export default defineComponent({
   name: "DataTable",
@@ -106,14 +107,14 @@ export default defineComponent({
           align: "center",
           label: "Действия",
         },
-      ],
+      ] as QTableColumn[],
 
       rows: [] as UserData[],
     };
   },
 
   methods: {
-    onEditClickHandler(row: user) {
+    onEditClickHandler(row: UserData) {
       this.$router.push({
         path: "/edit",
         query: { user: JSON.stringify(row) },
@@ -143,6 +144,7 @@ export default defineComponent({
 
   computed: {
     sortedRows() {
+      //@ts-ignore
       return this.rows.toSorted((a: UserData, b: UserData) =>
         a.lastName.localeCompare(b.lastName)
       );

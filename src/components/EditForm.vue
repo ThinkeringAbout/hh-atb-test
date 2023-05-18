@@ -9,8 +9,8 @@
         lazy-rules="ondemand"
         ref="firstNameRef"
         :rules="[
-          (value) => validateInputMin(value),
           (value) => validateInputMax(value),
+          (value) => validateInputMin(value),
         ]"
         v-model="form.data.fullName"
         label="ФИО (Отчество - при наличии)"
@@ -104,7 +104,7 @@ export default defineComponent({
 
     validateInputMin(text: string) {
       return (
-        (text.split(" ").length > 1 && this.form.data.firstName.length) ||
+        (text.split(" ").length > 1 && this.form.data.firstName.length > 0) ||
         this.warning
       );
     },
